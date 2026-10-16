@@ -672,3 +672,4 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation: 'El Coronel (luego Mariscal) Bernardino Bilbao Rioja organizó la defensa escalonada de Villa Montes con 36 baterías de artillería, deteniendo definitivamente la ofensiva adversaria.'
   }
 ];
+
