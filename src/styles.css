@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-obsidian: #11100d;
+  --bg-panel: #1a1813;
+  --bg-card: #221f18;
+  --border-gold: rgba(212, 163, 89, 0.26);
+  --gold-accent: #d4a359;
+  --gold-bright: #ecc37e;
+  --terracotta: #e07a5f;
+  --river-blue: #5c9ead;
+  --text-ivory: #f4f1ea;
+  --text-muted: #b5ada0;
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-obsidian);
+  color: var(--text-ivory);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@property --animation-reduced {
+  syntax: "*";
+  inherits: false;
+  initial-value: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: var(--animation-reduced) !important;
+    transition-duration: 0.01s !important;
+  }
+}

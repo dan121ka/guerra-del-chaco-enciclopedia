@@ -1,343 +1,763 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: block;
-    height: 100dvh;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+<div class="encyclopedia-shell">
+  <!-- TOP HISTORICAL ARCHIVE RIBBON -->
+  <div class="archive-ribbon">
+    <div class="ribbon-left">
+      <span class="badge-live">ARCHIVO HISTÓRICO MULTIMEDIA</span>
+      <span class="ribbon-meta">CONFLICTO DEL CHACO BOREAL (1932–1935) · BOLIVIA &amp; PARAGUAY</span>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
-      </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
-      </div>
+    <div class="ribbon-right">
+      <span class="tech-tag">ANGULAR 22 · SIGNALS &amp; WEB AUDIO API</span>
+      <span class="tech-tag">EVALUACIÓN CONTINUA H3</span>
     </div>
   </div>
-</main>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- HERO HEADER -->
+  <header class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="tricolor-bar"></span>
+        <span>ENCICLOPEDIA INTERACTIVA DE DIVULGACIÓN HISTÓRICA</span>
+      </div>
+      <h1>LA GUERRA DEL CHACO <span class="gold-year">(1932–1935)</span></h1>
+      <p class="hero-lead">
+        Explora de forma interactiva las campañas militares, la cartografía táctica del Chaco Boreal,
+        el primer combate aéreo de Sudamérica, la logística del agua y el legado social que transformó
+        la historia contemporánea de Bolivia y Paraguay.
+      </p>
 
+      <!-- KPI HISTORICAL METRICS -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-number">3 Años</span>
+          <span class="kpi-label">Duración del Conflicto (Jun 1932 – Jun 1935)</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-number">250.000 km²</span>
+          <span class="kpi-label">Teatro de Operaciones en el Chaco Boreal</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-number">~600.000</span>
+          <span class="kpi-label">Efectivos Movilizados entre Ambas Naciones</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-number">14 Jun 1935</span>
+          <span class="kpi-label">Cese de Hostilidades y Abrazo de Puesto Merino</span>
+        </div>
+      </div>
 
+      <!-- GLOBAL SEARCH & NAVIGATION -->
+      <div class="control-bar">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="search"
+            [value]="searchQuery()"
+            (input)="onSearchInput($event)"
+            placeholder="Buscar batallas (Boquerón, Km 7, Strongest), aviación, Marzana, Bilbao Rioja..."
+            aria-label="Buscar en la enciclopedia histórica"
+          />
+          @if (searchQuery()) {
+            <button class="clear-btn" (click)="searchQuery.set('')" type="button">Limpiar</button>
+          }
+        </div>
+
+        <nav class="nav-tabs" aria-label="Secciones de la Enciclopedia">
+          <button
+            type="button"
+            class="tab-btn"
+            [class.active]="activeTab() === 'cronologia'"
+            (click)="setTab('cronologia')"
+          >
+            <span>01</span> Línea de Tiempo
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            [class.active]="activeTab() === 'mapa'"
+            (click)="setTab('mapa')"
+          >
+            <span>02</span> Cartografía Táctica
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            [class.active]="activeTab() === 'protagonistas'"
+            (click)="setTab('protagonistas')"
+          >
+            <span>03</span> Protagonistas
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            [class.active]="activeTab() === 'arsenal'"
+            (click)="setTab('arsenal')"
+          >
+            <span>04</span> Aviación y Arsenal
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            [class.active]="activeTab() === 'multimedia'"
+            (click)="setTab('multimedia')"
+          >
+            <span>05</span> Sala Multimedia y Telégrafo
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            [class.active]="activeTab() === 'evaluacion'"
+            (click)="setTab('evaluacion')"
+          >
+            <span>06</span> Autoevaluación
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="main-container">
+    <!-- ==================== TAB 1: CRONOLOGÍA INTERACTIVA ==================== -->
+    @if (activeTab() === 'cronologia') {
+      <section class="section-block fade-in" aria-labelledby="title-cronologia">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">SECCIÓN 01 · CRONOLOGÍA DOCUMENTADA</span>
+            <h2 id="title-cronologia">Hitos y Campañas Militares (1932–1935)</h2>
+          </div>
+          <div class="year-filters" role="group" aria-label="Filtrar por año">
+            @for (yr of ['TODOS', '1932', '1933', '1934', '1935']; track yr) {
+              <button
+                type="button"
+                class="filter-pill"
+                [class.active]="selectedYear() === yr"
+                (click)="selectedYear.set(yr)"
+              >
+                {{ yr === 'TODOS' ? 'Toda la Guerra (1932–1935)' : 'Campaña ' + yr }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="timeline-master-detail">
+          <!-- Left: Timeline Rail -->
+          <div class="timeline-rail">
+            @for (ev of filteredEvents(); track ev.id) {
+              <article
+                class="timeline-card"
+                [class.selected]="selectedEvent().id === ev.id"
+                (click)="selectEvent(ev)"
+              >
+                <div class="timeline-marker">
+                  <span class="year-dot">{{ ev.year }}</span>
+                </div>
+                <div class="timeline-card-body">
+                  <div class="card-meta-row">
+                    <span class="event-date">{{ ev.date }}</span>
+                    <span class="event-loc">{{ ev.location }}</span>
+                  </div>
+                  <h3>{{ ev.title }}</h3>
+                  <p>{{ ev.subtitle }}</p>
+                  <div class="tag-row">
+                    @for (t of ev.tags; track t) {
+                      <span class="mini-tag">{{ t }}</span>
+                    }
+                  </div>
+                </div>
+              </article>
+            } @empty {
+              <div class="empty-state">
+                No se encontraron campañas que coincidan con "{{ searchQuery() }}".
+              </div>
+            }
+          </div>
+
+          <!-- Right: Interactive Dossier Inspector -->
+          @if (selectedEvent(); as current) {
+            <aside class="dossier-panel">
+              <div class="dossier-stamp">EXPEDIENTE HISTÓRICO #{{ current.year }}-{{ current.id.toUpperCase() }}</div>
+              <div class="dossier-header">
+                <span class="dossier-date">{{ current.date }} · {{ current.location }}</span>
+                <h3>{{ current.title }}</h3>
+                <p class="dossier-subtitle">{{ current.subtitle }}</p>
+              </div>
+
+              <!-- Dynamic SVG Historical Illustration -->
+              <div class="illustration-frame">
+                @switch (current.svgTheme) {
+                  @case ('trench') {
+                    <svg viewBox="0 0 600 220" class="tactical-svg" aria-label="Esquema táctico de Boquerón">
+                      <rect width="600" height="220" fill="#181510" />
+                      <circle cx="300" cy="110" r="82" fill="none" stroke="#d4a359" stroke-width="2.5" stroke-dasharray="8 5" />
+                      <circle cx="300" cy="110" r="52" fill="rgba(212, 163, 89, 0.12)" stroke="#e07a5f" stroke-width="2" />
+                      <path d="M 90 40 L 205 85 M 510 45 L 395 85 M 95 185 L 205 135 M 505 185 L 395 135" stroke="#5c9ead" stroke-width="3" marker-end="url(#arrow)" />
+                      <text x="300" y="106" text-anchor="middle" fill="#f4f1ea" font-size="13" font-weight="bold">REDUCTO BOQUERÓN</text>
+                      <text x="300" y="124" text-anchor="middle" fill="#d4a359" font-size="11">619 Defensores · 20 Días</text>
+                      <text x="140" y="32" fill="#7fb3d5" font-size="11">Cerco Exterior</text>
+                      <text x="450" y="32" fill="#e07a5f" font-size="11">Abastecimiento Aéreo</text>
+                    </svg>
+                  }
+                  @case ('aviation') {
+                    <svg viewBox="0 0 600 220" class="tactical-svg" aria-label="Esquema duelo aéreo Kilómetro 7">
+                      <rect width="600" height="220" fill="#131921" />
+                      <path d="M 40 160 Q 280 30 550 90" fill="none" stroke="#d4a359" stroke-width="2.5" stroke-dasharray="6 6" />
+                      <path d="M 80 60 Q 310 150 530 140" fill="none" stroke="#5c9ead" stroke-width="2" />
+                      <polygon points="330,72 355,80 330,88 336,80" fill="#e07a5f" />
+                      <circle cx="340" cy="80" r="24" fill="none" stroke="#e07a5f" stroke-width="1.5" />
+                      <text x="300" y="36" text-anchor="middle" fill="#f4f1ea" font-size="13" font-weight="bold">CIELO DE KILÓMETRO 7 (4 DIC 1932)</text>
+                      <text x="300" y="195" text-anchor="middle" fill="#d4a359" font-size="12">Curtiss Hawk II (My. Rafael Pabón) · Reglaje de Artillería</text>
+                    </svg>
+                  }
+                  @case ('tank') {
+                    <svg viewBox="0 0 600 220" class="tactical-svg" aria-label="Esquema de blindados Vickers en Nanawa">
+                      <rect width="600" height="220" fill="#1b1612" />
+                      <line x1="420" y1="20" x2="420" y2="200" stroke="#5c9ead" stroke-width="4" stroke-dasharray="10 6" />
+                      <rect x="130" y="85" width="90" height="46" rx="6" fill="#3d4f39" stroke="#d4a359" stroke-width="2" />
+                      <rect x="155" y="68" width="40" height="20" rx="3" fill="#4f664a" stroke="#d4a359" stroke-width="2" />
+                      <line x1="195" y1="78" x2="235" y2="78" stroke="#e07a5f" stroke-width="4" />
+                      <path d="M 245 108 L 395 108" stroke="#e07a5f" stroke-width="3" stroke-dasharray="5 5" />
+                      <text x="175" y="155" text-anchor="middle" fill="#f4f1ea" font-size="12">Vickers 6-Ton</text>
+                      <text x="495" y="112" text-anchor="middle" fill="#7fb3d5" font-size="12">Reducto de Quebracho</text>
+                    </svg>
+                  }
+                  @case ('march') {
+                    <svg viewBox="0 0 600 220" class="tactical-svg" aria-label="Triple cerco en Cañada Strongest">
+                      <rect width="600" height="220" fill="#141b15" />
+                      <ellipse cx="300" cy="110" rx="145" ry="70" fill="none" stroke="#e07a5f" stroke-width="3" />
+                      <ellipse cx="300" cy="110" rx="95" ry="45" fill="none" stroke="#d4a359" stroke-width="2" stroke-dasharray="7 5" />
+                      <circle cx="300" cy="110" r="22" fill="rgba(92,158,173,0.3)" stroke="#5c9ead" stroke-width="2" />
+                      <text x="300" y="30" text-anchor="middle" fill="#f4f1ea" font-size="13" font-weight="bold">MANIOBRA ENVOLVENTE · CAÑADA STRONGEST (MAYO 1934)</text>
+                      <text x="300" y="202" text-anchor="middle" fill="#d4a359" font-size="11">Apertura secreta de picadas nocturnas y triple anillo concéntrico</text>
+                    </svg>
+                  }
+                  @default {
+                    <svg viewBox="0 0 600 220" class="tactical-svg" aria-label="Esquema estratégico del Chaco">
+                      <rect width="600" height="220" fill="#181612" />
+                      <circle cx="300" cy="110" r="60" fill="rgba(212, 163, 89, 0.16)" stroke="#d4a359" stroke-width="2" />
+                      <path d="M 80 110 L 520 110" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+                      <text x="300" y="105" text-anchor="middle" fill="#f4f1ea" font-size="14" font-weight="bold">{{ current.location }}</text>
+                      <text x="300" y="128" text-anchor="middle" fill="#d4a359" font-size="12">{{ current.date }}</text>
+                    </svg>
+                  }
+                }
+                <figcaption class="svg-caption">{{ current.imageCaption }}</figcaption>
+              </div>
+
+              <!-- Commanders & Casualties Grid -->
+              <div class="combatants-comparison">
+                <div class="side-box bolivia-side">
+                  <span class="side-title">🇧🇴 Mando y Fuerzas (Bolivia)</span>
+                  <ul>
+                    @for (cmd of current.commandersBolivia; track cmd) {
+                      <li>{{ cmd }}</li>
+                    }
+                  </ul>
+                  <div class="casualty-pill">{{ current.casualtiesBolivia }}</div>
+                </div>
+                <div class="side-box paraguay-side">
+                  <span class="side-title">🇵🇾 Mando y Fuerzas (Paraguay)</span>
+                  <ul>
+                    @for (cmd of current.commandersParaguay; track cmd) {
+                      <li>{{ cmd }}</li>
+                    }
+                  </ul>
+                  <div class="casualty-pill">{{ current.casualtiesParaguay }}</div>
+                </div>
+              </div>
+
+              <!-- Detailed paragraphs -->
+              <div class="analysis-paragraphs">
+                <h4>Análisis Histórico Documentado</h4>
+                @for (para of current.detailedAnalysis; track para) {
+                  <p>{{ para }}</p>
+                }
+              </div>
+
+              <!-- Primary Source Quote -->
+              <blockquote class="historical-quote">
+                <p>“{{ current.primarySourceQuote.quote }}”</p>
+                <footer>
+                  <strong>— {{ current.primarySourceQuote.author }}</strong>
+                  <span>({{ current.primarySourceQuote.context }})</span>
+                </footer>
+              </blockquote>
+
+              <div class="dossier-actions">
+                <button type="button" class="btn-gold" (click)="toggleNarration(current.title + '. ' + current.summary + ' ' + current.detailedAnalysis.join(' '))">
+                  {{ isNarrating() ? '⏹ Detener Narración de Voz' : '🔊 Escuchar Narración Documental' }}
+                </button>
+                <button type="button" class="btn-outline" (click)="openEventModal(current)">
+                  Ampliar Ficha Completa
+                </button>
+              </div>
+            </aside>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ==================== TAB 2: CARTOGRAFÍA TÁCTICA INTERACTIVA ==================== -->
+    @if (activeTab() === 'mapa') {
+      <section class="section-block fade-in" aria-labelledby="title-mapa">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">SECCIÓN 02 · SISTEMA DE INFORMACIÓN HISTÓRICO-GEOGRÁFICO</span>
+            <h2 id="title-mapa">Teatro de Operaciones del Chaco Boreal (1932–1935)</h2>
+          </div>
+          <div class="sim-controls">
+            <span class="sim-label">Simulador de Línea del Frente por Año:</span>
+            @for (yr of [1932, 1933, 1934, 1935]; track yr) {
+              <button
+                type="button"
+                class="filter-pill"
+                [class.active]="simulationYearProgress() === yr"
+                (click)="setSimulationYear(yr)"
+              >
+                Frente {{ yr }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="map-workspace">
+          <!-- Interactive SVG Map of the Gran Chaco -->
+          <div class="map-canvas-card">
+            <div class="map-legend">
+              <span class="legend-item"><i class="dot bolivia"></i> Bastión / Victoria Bolivia</span>
+              <span class="legend-item"><i class="dot disputado"></i> Zona de Asedio / Disputada</span>
+              <span class="legend-item"><i class="dot paraguay"></i> Base / Bastión Paraguay</span>
+            </div>
+
+            <svg viewBox="0 0 100 100" class="chaco-map-svg" role="img" aria-label="Mapa táctico interactivo del Chaco Boreal">
+              <defs>
+                <radialGradient id="chacoTerrain" cx="50%" cy="50%" r="60%">
+                  <stop offset="0%" stop-color="#25231b" />
+                  <stop offset="100%" stop-color="#14130f" />
+                </radialGradient>
+              </defs>
+
+              <!-- Background Terrain -->
+              <rect x="0" y="0" width="100" height="100" fill="url(#chacoTerrain)" rx="4" />
+
+              <!-- Coordinate Grid Lines -->
+              @for (grid of [20, 40, 60, 80]; track grid) {
+                <line [attr.x1]="grid" y1="0" [attr.x2]="grid" y2="100" stroke="rgba(212,163,89,0.08)" stroke-width="0.3" />
+                <line x1="0" [attr.y1]="grid" x2="100" [attr.y2]="grid" stroke="rgba(212,163,89,0.08)" stroke-width="0.3" />
+              }
+
+              <!-- Serranía del Aguaragüe (Sub-Andean Foothills West) -->
+              <path d="M 12 10 Q 19 40 16 85" fill="none" stroke="rgba(212,163,89,0.35)" stroke-width="3" stroke-linecap="round" />
+              <text x="8" y="48" fill="#a89f91" font-size="2.6" transform="rotate(-82 8 48)">CORDILLERA AGUARAGÜE (ANDES)</text>
+
+              <!-- Río Pilcomayo (South-West Border) -->
+              <path d="M 14 62 Q 35 74 68 92" fill="none" stroke="#3b7a9e" stroke-width="1.4" />
+              <text x="34" y="81" fill="#6baed6" font-size="2.6" transform="rotate(24 34 81)">RÍO PILCOMAYO</text>
+
+              <!-- Río Paraguay (East Border) -->
+              <path d="M 84 12 Q 81 52 85 95" fill="none" stroke="#3b7a9e" stroke-width="1.8" />
+              <text x="88" y="55" fill="#6baed6" font-size="2.6" transform="rotate(90 88 55)">RÍO PARAGUAY</text>
+
+              <!-- Río Parapetí (North-West) -->
+              <path d="M 16 32 Q 28 34 36 25" fill="none" stroke="#3b7a9e" stroke-width="1.1" stroke-dasharray="1.5 1" />
+              <text x="22" y="28" fill="#6baed6" font-size="2.3">Río Parapetí</text>
+
+              <!-- Dynamic Front Line according to selected simulationYearProgress() -->
+              @if (simulationYearProgress() === 1932) {
+                <path d="M 56 32 Q 52 60 54 82" fill="none" stroke="#e07a5f" stroke-width="1.2" stroke-dasharray="2 1.5" />
+              }
+              @if (simulationYearProgress() === 1933) {
+                <path d="M 49 36 Q 48 65 55 80" fill="none" stroke="#e07a5f" stroke-width="1.2" stroke-dasharray="2 1.5" />
+              }
+              @if (simulationYearProgress() === 1934) {
+                <path d="M 34 34 Q 35 58 40 76" fill="none" stroke="#e07a5f" stroke-width="1.2" stroke-dasharray="2 1.5" />
+              }
+              @if (simulationYearProgress() === 1935) {
+                <path d="M 24 28 Q 22 60 28 70" fill="none" stroke="#d4a359" stroke-width="1.4" />
+              }
+
+              <!-- Logistics Supply Lines -->
+              <path d="M 20 66 L 36 56 L 48 69 L 53 61 L 59 44" fill="none" stroke="rgba(212,163,89,0.3)" stroke-width="0.6" stroke-dasharray="1 1" />
+              <path d="M 83 56 L 64 59 L 53 61" fill="none" stroke="rgba(92,158,173,0.35)" stroke-width="0.6" stroke-dasharray="1 1" />
+
+              <!-- Interactive Tactical Nodes -->
+              @for (loc of locations; track loc.id) {
+                <g
+                  class="map-node"
+                  [class.active]="selectedLocation().id === loc.id"
+                  (click)="selectLocation(loc)"
+                >
+                  <circle
+                    [attr.cx]="loc.x"
+                    [attr.cy]="loc.y"
+                    r="3.2"
+                    class="node-pulse"
+                    [class.bolivia]="loc.control === 'Bolivia'"
+                    [class.paraguay]="loc.control === 'Paraguay'"
+                    [class.disputado]="loc.control === 'Disputado'"
+                  />
+                  <circle
+                    [attr.cx]="loc.x"
+                    [attr.cy]="loc.y"
+                    r="1.7"
+                    class="node-core"
+                    [class.bolivia]="loc.control === 'Bolivia'"
+                    [class.paraguay]="loc.control === 'Paraguay'"
+                    [class.disputado]="loc.control === 'Disputado'"
+                  />
+                  <text
+                    [attr.x]="loc.x"
+                    [attr.y]="loc.y - 3.2"
+                    text-anchor="middle"
+                    class="node-label"
+                  >
+                    {{ loc.name }}
+                  </text>
+                </g>
+              }
+            </svg>
+          </div>
+
+          <!-- Selected Tactical Location Details -->
+          @if (selectedLocation(); as loc) {
+            <aside class="location-inspector">
+              <span class="inspector-badge">{{ loc.type.toUpperCase() }} · {{ loc.year }}</span>
+              <h3>{{ loc.name }}</h3>
+              <p class="loc-summary">{{ loc.summary }}</p>
+
+              <div class="telemetry-grid">
+                <div class="telemetry-box">
+                  <span class="t-label">Altitud Media</span>
+                  <strong class="t-val">{{ loc.elevation }}</strong>
+                </div>
+                <div class="telemetry-box">
+                  <span class="t-label">Clima en Campaña</span>
+                  <strong class="t-val">{{ loc.temperature }}</strong>
+                </div>
+                <div class="telemetry-box">
+                  <span class="t-label">Control Táctico</span>
+                  <strong class="t-val">{{ loc.control }}</strong>
+                </div>
+              </div>
+
+              <div class="strategic-role-box">
+                <h4>Importancia Geoestratégica</h4>
+                <p>{{ loc.strategicRole }}</p>
+              </div>
+
+              <div class="key-facts-box">
+                <h4>Datos Clave de Archivo</h4>
+                <ul>
+                  @for (fact of loc.keyFacts; track fact) {
+                    <li>{{ fact }}</li>
+                  }
+                </ul>
+              </div>
+
+              <div class="quick-nodes-list">
+                <h4>Seleccionar otro punto estratégico:</h4>
+                <div class="node-chips">
+                  @for (item of locations; track item.id) {
+                    <button
+                      type="button"
+                      class="chip-btn"
+                      [class.active]="item.id === loc.id"
+                      (click)="selectLocation(item)"
+                    >
+                      {{ item.name }}
+                    </button>
+                  }
+                </div>
+              </div>
+            </aside>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ==================== TAB 3: PROTAGONISTAS Y BIOGRAFÍAS ==================== -->
+    @if (activeTab() === 'protagonistas') {
+      <section class="section-block fade-in" aria-labelledby="title-protagonistas">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">SECCIÓN 03 · LIDERAZGO MILITAR, AVIACIÓN Y SANIDAD</span>
+            <h2 id="title-protagonistas">Protagonistas Históricos de la Contienda</h2>
+          </div>
+          <div class="year-filters">
+            @for (c of ['TODOS', 'Bolivia', 'Paraguay', 'Neutral']; track c) {
+              <button
+                type="button"
+                class="filter-pill"
+                [class.active]="selectedCountryFilter() === c"
+                (click)="selectedCountryFilter.set($any(c))"
+              >
+                {{ c === 'TODOS' ? 'Todos' : c === 'Neutral' ? 'Sanidad y Humanitarismo' : c }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="protagonists-grid">
+          @for (person of filteredProtagonists(); track person.id) {
+            <article class="protagonist-card" (click)="selectedProtagonist.set(person)">
+              <div class="protagonist-top">
+                <span class="country-tag" [attr.data-country]="person.country">
+                  {{ person.country === 'Bolivia' ? '🇧🇴 Bolivia' : person.country === 'Paraguay' ? '🇵🇾 Paraguay' : '✚ Sanidad Militar' }}
+                </span>
+                <span class="lifespan">{{ person.years }}</span>
+              </div>
+              <h3>{{ person.name }}</h3>
+              <p class="rank-line">{{ person.rank }} · {{ person.role }}</p>
+              <p class="bio-text">{{ person.biography }}</p>
+              <div class="contribution-box">
+                <strong>Aporte Estratégico:</strong> {{ person.keyContribution }}
+              </div>
+              <blockquote class="mini-quote">“{{ person.famousQuote }}”</blockquote>
+              <div class="tag-row">
+                @for (b of person.badges; track b) {
+                  <span class="mini-tag">{{ b }}</span>
+                }
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ==================== TAB 4: AVIACIÓN, BLINDADOS Y ARSENAL ==================== -->
+    @if (activeTab() === 'arsenal') {
+      <section class="section-block fade-in" aria-labelledby="title-arsenal">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">SECCIÓN 04 · TECNOLOGÍA MILITAR Y LOGÍSTICA EN EL CHACO</span>
+            <h2 id="title-arsenal">Aviación, Blindados, Artillería y Logística Hídrica</h2>
+          </div>
+          <div class="year-filters">
+            @for (cat of ['TODOS', 'Aviación', 'Blindados y Artillería', 'Infantería', 'Logística y Sanidad']; track cat) {
+              <button
+                type="button"
+                class="filter-pill"
+                [class.active]="selectedArsenalCategory() === cat"
+                (click)="selectedArsenalCategory.set(cat)"
+              >
+                {{ cat }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="arsenal-grid">
+          @for (item of filteredArsenal(); track item.id) {
+            <article class="arsenal-card">
+              <div class="arsenal-header">
+                <span class="arsenal-cat">{{ item.category }}</span>
+                <span class="arsenal-origin">{{ item.origin }}</span>
+              </div>
+              <h3>{{ item.name }}</h3>
+              <p class="arsenal-history">{{ item.history }}</p>
+
+              <div class="specs-table">
+                @for (s of item.specs; track s.label) {
+                  <div class="spec-row">
+                    <span class="spec-label">{{ s.label }}</span>
+                    <strong class="spec-value">{{ s.value }}</strong>
+                  </div>
+                }
+              </div>
+
+              <div class="tactical-advantage">
+                <strong>Impacto Táctico:</strong> {{ item.tacticalAdvantage }}
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ==================== TAB 5: SALA MULTIMEDIA Y TELÉGRAFO ==================== -->
+    @if (activeTab() === 'multimedia') {
+      <section class="section-block fade-in" aria-labelledby="title-multimedia">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">SECCIÓN 05 · EXPERIENCIA INMERSIVA AUDIOVISUAL Y SONORA</span>
+            <h2 id="title-multimedia">Documental Interactivo y Telégrafo Militar de Campaña</h2>
+          </div>
+        </div>
+
+        <div class="multimedia-grid">
+          <!-- Left: Interactive Documentary Player with Voice Narration -->
+          <div class="docu-player-card">
+            <div class="docu-screen">
+              <div class="film-grain"></div>
+              <span class="docu-badge">{{ documentaryScenes[documentaryChapter()].duration }}</span>
+              <h3>{{ documentaryScenes[documentaryChapter()].title }}</h3>
+              <p class="docu-narration">{{ documentaryScenes[documentaryChapter()].narration }}</p>
+
+              <div class="docu-stats-row">
+                @for (st of documentaryScenes[documentaryChapter()].stats; track st.label) {
+                  <div class="docu-stat">
+                    <span>{{ st.label }}</span>
+                    <strong>{{ st.value }}</strong>
+                  </div>
+                }
+              </div>
+            </div>
+
+            <div class="docu-controls">
+              <div class="chapter-buttons">
+                @for (sc of documentaryScenes; track sc.title; let idx = $index) {
+                  <button
+                    type="button"
+                    class="filter-pill"
+                    [class.active]="documentaryChapter() === idx"
+                    (click)="documentaryChapter.set(idx)"
+                  >
+                    Capítulo {{ idx + 1 }}
+                  </button>
+                }
+              </div>
+
+              <button
+                type="button"
+                class="btn-gold"
+                (click)="toggleNarration(documentaryScenes[documentaryChapter()].title + '. ' + documentaryScenes[documentaryChapter()].narration)"
+              >
+                {{ isNarrating() ? '⏹ Detener Locución Documental' : '▶ Escuchar Locución con Síntesis de Voz' }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Web Audio API Morse Telegraph Simulator -->
+          <div class="telegraph-card">
+            <div class="telegraph-header">
+              <span class="section-kicker">SINTETIZADOR WEB AUDIO API EN TIEMPO REAL</span>
+              <h3>Interceptación de Partes Telegráficos (Código Morse)</h3>
+              <p>
+                Reproduce el sonido real de los transmisores telegráficos de campaña empleados entre
+                Fortín Muñoz, Boquerón, Isla Poí y Villa Montes.
+              </p>
+            </div>
+
+            <div class="dispatch-list">
+              @for (d of radioDispatches; track d.code; let i = $index) {
+                <div class="dispatch-item" [class.active]="activeRadioMessageIndex() === i">
+                  <div class="dispatch-top">
+                    <strong>{{ d.code }} · {{ d.date }}</strong>
+                    <button
+                      type="button"
+                      class="btn-telegraph"
+                      (click)="toggleMorseTelegraph(i)"
+                    >
+                      {{ isAudioPlaying() && activeRadioMessageIndex() === i ? '⏹ Detener Audio Morse' : '📡 Escuchar Telégrafo' }}
+                    </button>
+                  </div>
+                  <div class="dispatch-origin">{{ d.origin }}</div>
+                  <code class="morse-code">{{ d.morse }}</code>
+                  <p class="dispatch-text">{{ d.message }}</p>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- ==================== TAB 6: AUTOEVALUACIÓN ACADÉMICA ==================== -->
+    @if (activeTab() === 'evaluacion') {
+      <section class="section-block fade-in" aria-labelledby="title-quiz">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">SECCIÓN 06 · MÓDULO PEDAGÓGICO PARA ESTUDIANTES E INVESTIGADORES</span>
+            <h2 id="title-quiz">Autoevaluación Interactiva sobre la Guerra del Chaco</h2>
+          </div>
+          @if (quizSubmitted()) {
+            <div class="score-banner">
+              Calificación Obtenida: <strong>{{ quizScore() }} / {{ quizQuestions.length }}</strong> respuestas correctas
+              <button type="button" class="btn-outline" (click)="resetQuiz()">Reintentar Evaluación</button>
+            </div>
+          }
+        </div>
+
+        <div class="quiz-list">
+          @for (q of quizQuestions; track q.id; let qIndex = $index) {
+            <article class="quiz-card">
+              <h3>{{ qIndex + 1 }}. {{ q.question }}</h3>
+              <div class="options-grid">
+                @for (opt of q.options; track opt; let optIndex = $index) {
+                  <button
+                    type="button"
+                    class="option-btn"
+                    [class.selected]="quizAnswers()[q.id] === optIndex"
+                    [class.correct]="quizSubmitted() && optIndex === q.correctIndex"
+                    [class.incorrect]="quizSubmitted() && quizAnswers()[q.id] === optIndex && optIndex !== q.correctIndex"
+                    (click)="selectQuizAnswer(q.id, optIndex)"
+                  >
+                    <span class="opt-letter">{{ ['A', 'B', 'C', 'D'][optIndex] }}</span>
+                    <span>{{ opt }}</span>
+                  </button>
+                }
+              </div>
+              @if (quizSubmitted()) {
+                <div class="quiz-explanation">
+                  <strong>Fundamento Histórico:</strong> {{ q.explanation }}
+                </div>
+              }
+            </article>
+          }
+        </div>
+
+        @if (!quizSubmitted()) {
+          <div class="quiz-submit-row">
+            <button type="button" class="btn-gold btn-large" (click)="submitQuiz()">
+              Verificar Respuestas y Mostrar Fundamento Histórico
+            </button>
+          </div>
+        }
+      </section>
+    }
+  </main>
+
+  <!-- MODAL FOR EXTENDED ARCHIVE DOSSIER -->
+  @if (modalEvent(); as modal) {
+    <div class="modal-backdrop" (click)="closeEventModal()">
+      <div class="modal-dialog" role="dialog" aria-modal="true" (click)="$event.stopPropagation()">
+        <div class="modal-top">
+          <span class="dossier-stamp">ARCHIVO DE CAMPAÑA · {{ modal.date }}</span>
+          <button type="button" class="close-modal-btn" (click)="closeEventModal()">✕ Cerrar</button>
+        </div>
+        <h2>{{ modal.title }}</h2>
+        <p class="modal-subtitle">{{ modal.subtitle }}</p>
+        <div class="modal-impact-box">
+          <strong>Consecuencia Estratégica Continental:</strong>
+          <p>{{ modal.strategicImpact }}</p>
+        </div>
+        <div class="analysis-paragraphs">
+          @for (p of modal.detailedAnalysis; track p) {
+            <p>{{ p }}</p>
+          }
+        </div>
+        <blockquote class="historical-quote">
+          <p>“{{ modal.primarySourceQuote.quote }}”</p>
+          <footer>— {{ modal.primarySourceQuote.author }} ({{ modal.primarySourceQuote.context }})</footer>
+        </blockquote>
+      </div>
+    </div>
+  }
+
+  <!-- FOOTER -->
+  <footer class="encyclopedia-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Enciclopedia Interactiva Multimedia: La Guerra del Chaco (1932–1935)</strong>
+        <p>Desarrollado con Angular 22 · Evaluación Continua H3 · Divulgación Histórica y Educativa.</p>
+      </div>
+      <div class="footer-badges">
+        <span>Documentación Agéntica: AGENTE.md</span>
+        <span>Angular CLI 22.2.2</span>
+      </div>
+    </div>
+  </footer>
+</div>
